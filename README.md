@@ -14,5 +14,18 @@ The coefficient associated with the 'Kohli_Half_Century' feature was found to be
 
 In conclusion, while the logistic regression model indicates a positive correlation between Virat Kohli scoring a half-century and the team's likelihood of winning, this single variable is not a strong predictor of match outcome. The model's accuracy is modest, and its ability to identify wins is particularly limited. Future iterations of this analysis should consider incorporating additional features known to influence IPL match results to potentially develop a more robust and accurate predictive model. These features could include the performance of other key players, opponent team strength, venue characteristics, and overall team form.
 
+Data Dictionary:
+
 
 STEPS to do this project:
+
+1. First in terms of sourcing the information I used this website to generate a CSV of all of Virat Kohli's innings from his debut match till now. The issue with this dataset was that it did not contain match result (win or loss).
+2. I then had to use the same website to source all the match results from each season from 2008 till 2025. Once downloaded I then ensured that each dataset had a match_id column that matches with the Kohli dataset to ensure a join could be executed in python.
+3. I imported all the datasets into Jupyter notebooks as dataframes and then noticed that the Team1 and Team2 column (which showed who played against who) for each row also contained scorecard information. I then had to use a bespoke function to ensure I can extract only the team name from these columns as this was needed for down the line. I executed this function by using the .apply method on all dataframes for all seasons. In hindsight I could have done this in one go down the line!
+4. I then used pd.concat to utilise a union for all these dataframes as they contained the same data type and headings this was possible.I also saw that some columns existed that were null and some rows also came up null. I used standard techniques to drop them and called this df_union_cleaned.
+5. I then uploaded the Kohli scores dataset.
+6. I also then reduced the size of the df_union_cleaned dataframe to only focus on rows which contain either Royal Challengers Bangalore or Royal Challengers Bengaluru as the team had a name change.
+7. I then joined this joined dataframe with Kohli's dataset using a left join (Kohli data as left table).
+8. I then reduced size of this dataframe further to focus on Strike Rate, 50, Result. This was now called final_data.
+9. After this I then changed the Result cell entries to a binary output by making a new column and making use of np.where to change entries from RCB to 1 (for a win) and other teams to 0.
+10. In the last block of code I used various python libraries and functions to make a logistic regression model, train on 80% data, make predictions on test set and then evaluate the model and interpret the coefficient.
