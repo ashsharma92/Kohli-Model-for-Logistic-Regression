@@ -13,3 +13,6 @@ The confusion matrix illustrates these findings, showing a higher number of true
 The coefficient associated with the 'Kohli_Half_Century' feature was found to be approximately 0.28. This positive coefficient suggests that scoring a half-century by Virat Kohli is associated with an increase in the log-odds of Royal Challengers Bangalore winning. However, the relatively small magnitude of the coefficient, coupled with the overall model performance, indicates that this single factor has a limited predictive power for match outcomes. The intercept of the model was approximately -0.26.
 
 In conclusion, while the logistic regression model indicates a positive correlation between Virat Kohli scoring a half-century and the team's likelihood of winning, this single variable is not a strong predictor of match outcome. The model's accuracy is modest, and its ability to identify wins is particularly limited. Future iterations of this analysis should consider incorporating additional features known to influence IPL match results to potentially develop a more robust and accurate predictive model. These features could include the performance of other key players, opponent team strength, venue characteristics, and overall team form.
+
+
+STEPS to do this project:
